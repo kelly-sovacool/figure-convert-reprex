@@ -1,6 +1,5 @@
-
-figures_dict = {1: 'figures/alpha_beta.tiff', 2: 'figures/false_pos.tiff'}
-
+configfile: "config/default.yml"
+figures_dict=config['figures']
 
 rule targets:
     input:
