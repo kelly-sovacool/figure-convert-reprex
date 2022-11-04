@@ -1,0 +1,35 @@
+
+figures_dict = {1: 'figures/alpha_beta.tiff', 2: 'figures/false_pos.tiff'}
+
+
+rule targets:
+    input:
+        expand("submission/figure_{fig_num}.png", 
+                fig_num = range(1, len(figures_dict)+1))
+
+rule plot_alpha_beta:
+    input:
+        R='workflow/scripts/plot_alpha_beta.R'
+    output:
+        tiff='figures/alpha_beta.tiff'
+    script:
+        'scripts/plot_alpha_beta.R'
+
+
+rule plot_false_pos:
+    input:
+        R='workflow/scripts/plot_false_pos.R'
+    output:
+        tiff='figures/false_pos.tiff'
+    script:
+        'scripts/plot_false_pos.R'
+
+rule convert_tiff_to_png:
+    input:
+        tiff=lambda wildcards: f"{figures_dict[int(wildcards.fig_num)]}"
+    output:
+        png="submission/figure_{fig_num}.png"
+    shell:
+        """
+        convert {input.tiff} {output.png}
+        """
