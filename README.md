@@ -11,7 +11,7 @@ The magic is in defining a dictionary that maps figure numbers to figure names:
 figures_dict = {1: 'figures/alpha_beta.tiff', 2: 'figures/false_pos.tiff'}
 ```
 
-And using an input function for the repetitive conversion step to access the 
+And using an input function to access the 
 input figure name from the output figure number:
 ```python
 rule convert_tiff_to_png:
