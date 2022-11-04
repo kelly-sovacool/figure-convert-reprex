@@ -1,9 +1,10 @@
 # figure-convert-reprex
 
 A minimal reproducible example for converting a bunch of unique figure names
-to the canonical form "figure_{num}" without repetitive code.
+to the canonical form `figure_{num}` without repetitive code.
 
 ![dag](figures/dag.png)
+
 
 The magic is in defining a dictionary that maps figure numbers to figure names:
 ```python
