@@ -6,22 +6,25 @@ geometry: margin=1.0in
 ---
 
 ```{r knitr_settings, eval=TRUE, echo=FALSE, cache=FALSE}
-knitr::opts_knit$set(
+knitr::opts_chunk$set(
   eval = TRUE,
-  echo = FALSE
+  echo = FALSE,
+  message = FALSE,
+  base.dir = here::here(),
   fig.path = "figures/",
   dpi = 300
 )
 ```
 
 ```{r deps}
+library(here)
 library(knitr)
 ```
 
-```{r fig-div, fig.cap = "**Figure 1.** Diversity"}
-include_graphics('figures/figure_1.png')
+```{r fig-div, fig.cap = "Diversity"}
+include_graphics(here('paper/figure_1.png'))
 ```
 
-```{r fig-error, fig.cap = "**Figure 2.** Error Rates"}
-include_graphics('figures/figure_2.png')
+```{r fig-error, fig.cap = "Error Rates"}
+include_graphics(here('paper/figure_2.png'))
 ```
