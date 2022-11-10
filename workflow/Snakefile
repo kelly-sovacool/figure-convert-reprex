@@ -42,6 +42,6 @@ rule render_paper:
                        fig_num = range(1, len(figures_dict)+1))
     output:
         pdf="paper/paper.pdf",
-    conda: "envs/Rtidy.yaml",
+    conda: "envs/Rtidy.yml",
     script:
         "scripts/render_rmd.R"
