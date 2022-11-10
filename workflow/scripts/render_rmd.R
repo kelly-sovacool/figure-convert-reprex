@@ -1,4 +1,3 @@
-schtools::log_snakemake()
-rmarkdown::render(snakemake@input[["Rmd"]],
-  output_file = snakemake@output[["pdf"]]
+rmarkdown::render(snakemake@input[["Rmd"]], 
+    output_file = here::here(snakemake@output[['pdf']])
 )
