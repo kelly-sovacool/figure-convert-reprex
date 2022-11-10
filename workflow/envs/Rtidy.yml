@@ -7,3 +7,4 @@ dependencies:
   - r-cowplot
   - r-dplyr
   - r-ggplot2
+  - r-rmarkdown
