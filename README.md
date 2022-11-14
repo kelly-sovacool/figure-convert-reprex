@@ -56,7 +56,7 @@ input figure name from the output figure number:
 ```python
 rule convert_tiff_to_png:
     input:
-        tiff=lambda wildcards: f"{figures_dict[int(wildcards.fig_num)]}"
+        tiff=lambda wildcards: figures_dict[int(wildcards.fig_num)]
     output:
         png="submission/figure_{fig_num}.png"
     shell:
