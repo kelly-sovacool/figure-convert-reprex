@@ -1,3 +1,3 @@
 figures:
-  1: 'figures/diversity.tiff'
-  2: 'figures/error_rates.tiff'
+  1: diversity
+  2: error_rates

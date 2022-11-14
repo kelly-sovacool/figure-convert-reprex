@@ -48,7 +48,9 @@ to the canonical form `figure_{num}` without repetitive code.
 
 The magic is in defining a dictionary that maps figure numbers to figure names:
 ```python
-figures_dict = {1: 'figures/alpha_beta.tiff', 2: 'figures/false_pos.tiff'}
+figures_dict = {1: 'alpha_beta_depth_correlation', 
+                2: 'false_positive_null_model',
+                3: 'false_positive_null_model_size'}
 ```
 
 And using an input function to access the 
@@ -56,7 +58,7 @@ input figure name from the output figure number:
 ```python
 rule convert_tiff_to_png:
     input:
-        tiff=lambda wildcards: f"{figures_dict[int(wildcards.fig_num)]}"
+        tiff=lambda wildcards: f"figures/{figures_dict[int(wildcards.fig_num)]}.tiff"
     output:
         png="submission/figure_{fig_num}.png"
     shell:

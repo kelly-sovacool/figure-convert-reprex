@@ -25,7 +25,7 @@ rule plot_error_rates:
 
 rule convert_tiff_to_png:
     input:
-        tiff=lambda wildcards: f"{figures_dict[int(wildcards.fig_num)]}"
+        tiff=lambda wildcards: f"figures/{figures_dict[int(wildcards.fig_num)]}.tiff"
     output:
         png="paper/figure_{fig_num}.png"
     conda: 'envs/shell.yml'
