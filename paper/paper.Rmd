@@ -1,0 +1,30 @@
+---
+title: "Example paper"
+output: pdf_document
+fontsize: 12pt
+geometry: margin=1.0in
+---
+
+```{r knitr_settings, eval=TRUE, echo=FALSE, cache=FALSE}
+knitr::opts_chunk$set(
+  eval = TRUE,
+  echo = FALSE,
+  message = FALSE,
+  base.dir = here::here(),
+  fig.path = "figures/",
+  dpi = 300
+)
+```
+
+```{r deps}
+library(here)
+library(knitr)
+```
+
+```{r fig-div, fig.cap = "Diversity"}
+include_graphics(here('paper/figure_1.png'))
+```
+
+```{r fig-error, fig.cap = "Error Rates"}
+include_graphics(here('paper/figure_2.png'))
+```
