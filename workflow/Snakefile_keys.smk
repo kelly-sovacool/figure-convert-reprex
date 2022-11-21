@@ -22,14 +22,12 @@ rule plot_error_rates:
     script:
         'scripts/plot_error_rates.R'
 
-def get_fig_name(wildcards):
-    return f'figures/{figures_dict[wildcards.fig_num]}.tiff'
-
 rule convert_tiff_to_png:
     input:
-        tiff=get_fig_name
+        tiff=lambda wildcards: f'figures/{figures_dict[wildcards.fig_num]}.tiff'
     output:
         png="paper/figure_{fig_num}.png"
+    conda: 'envs/shell.yml'
     shell:
         """
         convert {input.tiff} {output.png}
@@ -39,8 +37,10 @@ rule render_paper:
     input:
         Rmd="paper/paper.Rmd",
         R="workflow/scripts/render_rmd.R",
-        figures=expand(rules.convert_tiff_to_png.output.png, fig_num = figures_dict.keys())
+        figures=expand(rules.convert_tiff_to_png.output.png, 
+                       fig_num = figures_dict.keys())
     output:
         pdf="paper/paper.pdf"
+    conda: "envs/Rtidy.yml",
     script:
         "scripts/render_rmd.R"
