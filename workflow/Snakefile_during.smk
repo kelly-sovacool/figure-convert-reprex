@@ -39,7 +39,7 @@ rule render_paper:
     input:
         Rmd="paper/paper.Rmd",
         R="workflow/scripts/render_rmd.R",
-        figures=expand(rules.convert_tiff_to_png.output.png, fig_num = list(figures_dict.keys()))
+        figures=expand(rules.convert_tiff_to_png.output.png, fig_num = figures_dict.keys())
     output:
         pdf="paper/paper.pdf"
     script:
